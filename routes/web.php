@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,14 +20,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+//Redireccionamos con el controller de listproducts 
+Route::get('productos', [ProductController::class,'listProducts'] );
+Route::get('detalle', [ProductController::class,'detail'] );
+
+/*
 //gets siempre para las url y los inputs para crear alguna cosa
 Route::get('productos/categoria/alirio', function () {
     return 'estoy en la página de producto';
-});
-
-//para que devuelva todos los productos
-Route::get('productos/{id}', function ($id) {
-    return "el nombre del producto es $id";
 });
 
 //para crear producto
@@ -37,3 +40,4 @@ Route::get('productos/create', function () {
 Route::get('productos/{id}/{categoria}', function ($id, $categoria) {
     return "el nombre del producto es $id con la categoria $categoria";
 });
+*/
